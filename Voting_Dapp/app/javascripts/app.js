@@ -29,7 +29,6 @@ window.App = {
   },
  
   voteForCandidate : function(cntrl) {
-    debugger
     var cnt = $(cntrl).parent().parent().find('td')[0];
     var candidateName = $(cnt).text();
     try {
@@ -41,10 +40,8 @@ window.App = {
       * everywhere we have a transaction call
       */
       Voting.deployed().then(function(contractInstance) {
-        debugger
         contractInstance.voteForCandidate(candidateName, {gas: 140000, from: web3.eth.accounts[0]}).then(function() {
           let div_id = candidates[candidateName];
-          debugger
           return contractInstance.totalVotesFor.call(candidateName).then(function(v) {
             $("#" + div_id).html(v.toString());
             $("#msg").html("");

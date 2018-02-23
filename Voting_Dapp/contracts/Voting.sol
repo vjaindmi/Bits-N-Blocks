@@ -4,7 +4,7 @@ contract Voting {
     mapping (bytes32=>uint8) public votesReceived;
     bytes32[] public candidateList;
  
-    function Voting(bytes32[] candidateNames) {
+    function Voting(bytes32[] candidateNames){
         candidateList=candidateNames;
     }
  
@@ -13,13 +13,15 @@ contract Voting {
         return votesReceived[candidate];
     }
  
-    function voteForCandidate(bytes32 candidate) {
+    function voteForCandidate(bytes32 candidate) 
+    {
         if (validCandidate(candidate) == false) throw;
         votesReceived[candidate] += 1;
     }
  
-    function validCandidate(bytes32 candidate) returns (bool) {
-        for (uint i = 0; i < candidateList.length; i++) {
+    function validCandidate(bytes32 candidate) returns (bool) 
+    {
+        for(uint i = 0; i < candidateList.length; i++) {
         if (candidateList[i] == candidate) {
             return true;
         }
