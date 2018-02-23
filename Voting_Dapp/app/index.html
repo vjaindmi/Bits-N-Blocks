@@ -112,9 +112,7 @@ body::before {
  
       var ValidEmail = $('#username').val() === 'Nikhil'; // User validate
       var ValidPassword = $('#password').val() === 'test'; // Password validate
- 
-        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
-          debugger  
+        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword  
           $('.valid').css('display', 'block');
             window.location = "/vote.html"; // go to home.html
         }
