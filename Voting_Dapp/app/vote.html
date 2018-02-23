@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting App using BlockChains</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="./app.js"></script>
+  
+</head>
+<body class="container">
+  <h1>Voting Application</h1>
+  <div id="address"></div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Candidate Name</th>
+          <th>Number of Votes</th>
+          <th>Vote</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Akanksha</td>
+          <td id="candidate-1"></td>
+          <td ><a href="#" onclick="App.voteForCandidate(this)" class="btn btn-primary">Vote</a></td>
+        </tr>
+        <tr>
+          <td>Vaibhav</td>
+          <td id="candidate-2"></td>
+          <td ><a href="#" onclick="App.voteForCandidate(this)" class="btn btn-primary">Vote</a></td>
+
+        </tr>
+        <tr>
+          <td>Nikhil</td>
+          <td id="candidate-3"></td>
+          <td ><a href="#" onclick="App.voteForCandidate(this)" class="btn btn-primary">Vote</a></td>
+
+        </tr>
+        <tr>
+          <td>Akhilesh</td>
+          <td id="candidate-4"></td>
+          <td ><a href="#" onclick="App.voteForCandidate(this)" class="btn btn-primary">Vote</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

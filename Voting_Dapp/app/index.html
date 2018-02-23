@@ -1,45 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-  <title>Voting App using BlockChains</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-  <script src="./app.js"></script>
+  <meta charset="UTF-8">
+  <title>Login</title>
+ 
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      /* Design based on Blue Login Field of Kevin Sleger https://codepen.io/MurmeltierS/pen/macKb */
+body {
+  background: #44c4e7 url("https://photos-6.dropbox.com/t/2/AAC_bdqR8LMkjEe-HPIf4K1DhtseMLRHPklBSzJSuzglvA/12/5714737/jpeg/1024x768/3/1418346000/0/2/bkg-blur.jpg/CLHm3AIgASgBKAI/b7RrveA2022yJyfO9RyRvv7LjJQESukGHssHUxVThzw") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Roboto";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body::before {
+  z-index: -1;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #44c4e7;
+  /* IE Fallback */
+  background: rgba(68, 196, 231, 0.8);
+  width: 100%;
+  height: 100%;
+}
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #fff;
+  width: 285px;
+  margin: -140px 0 0 -182px;
+  padding: 40px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.form h2 {
+  margin: 0 0 20px;
+  line-height: 1;
+  color: #44c4e7;
+  font-size: 18px;
+  font-weight: 400;
+}
+.form input {
+  outline: none;
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  font-size: 14px;
+  font-wieght: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: 0.2s linear;
+}
+.form inputinput:focus {
+  color: #333;
+  border: 1px solid #44c4e7;
+}
+.form button {
+  cursor: pointer;
+  background: #44c4e7;
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+}
+.form button:hover {
+  background: #369cb8;
+}
+.error,
+.valid {
+  display: none;
+}
+  </style>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+ 
 </head>
-<body class="container">
-  <h1>Voting Application</h1>
-  <div id="address"></div>
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Candidate</th>
-          <th>Votes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Akanksha</td>
-          <td id="candidate-1"></td>
-        </tr>
-        <tr>
-          <td>Vaibhav</td>
-          <td id="candidate-2"></td>
-        </tr>
-        <tr>
-          <td>Nikhil</td>
-          <td id="candidate-3"></td>
-        </tr>
-        <tr>
-          <td>Akhilesh</td>
-          <td id="candidate-4"></td>
-        </tr>
-      </tbody>
-    </table>
-    <div id="msg"></div>
-  </div>
-  <input type="text" id="candidate" placeholder="Enter the Candidate's Name" /><br/><br/>
-  <a href="#" onclick="App.voteForCandidate()" class="btn btn-primary">Vote</a>
+ 
+<body>
+  <!--Correct username: invitado / pass: hgm2015-->
+ 
+<section class="form animated flipInX">
+  <h2>Login To Your Account</h2>
+  <p class="valid">Valid. Please wait a moment.</p>
+  <p class="error">Error. Please enter correct Username &amp; password.</p>
+  <form class="loginbox" autocomplete="off">
+    <input placeholder="Username" type="text" id="username" ></input>
+    <input placeholder="Password" type="password" id="password"></input>
+<button id="submit">Login</button>
+</form>
+</section>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+ 
+    <script>
+    $(document).ready(function() {
+    $('#username').focus();
+ 
+    $('#submit').click(function() {
+ 
+       event.preventDefault(); // prevent PageReLoad
+ 
+      var ValidEmail = $('#username').val() === 'Nikhil'; // User validate
+      var ValidPassword = $('#password').val() === 'test'; // Password validate
+ 
+        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
+          debugger  
+          $('.valid').css('display', 'block');
+            window.location = "/vote.html"; // go to home.html
+        }
+        else {
+            $('.error').css('display', 'block'); // show error msg
+        }
+    });
+});
+    </script>
+ 
 </body>
 </html>

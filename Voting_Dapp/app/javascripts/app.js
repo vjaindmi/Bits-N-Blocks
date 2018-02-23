@@ -15,32 +15,25 @@ let candidates = {"Akanksha": "candidate-1", "Vaibhav": "candidate-2", "Nikhil":
 window.App = {
   start: function() {
     var self = this;
-     
     Voting.setProvider(web3.currentProvider);
- 
     let candidateNames = Object.keys(candidates);
     for (var i = 0; i < candidateNames.length; i++) {
       let name = candidateNames[i];
       Voting.deployed().then(function(contractInstance) {
         contractInstance.totalVotesFor.call(name).then(function(v) {
           $("#" + candidates[name]).html(v.toString());
+          console.log()
         });
       })
     }
-    
   },
  
-  voteForCandidate : function(candidate) {
-  let candidateName = $("#candidate").val();
+  voteForCandidate : function(cntrl) {
+    var cnt = $(cntrl).parent().parent().find('td')[0];
+    var candidateName = $(cnt).text();
     try {
-      
       if($("#candidate").val()==''){
         $("#msg").html("Please enter the name")
-      }
-
-      else {
-        $("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
-      $("#candidate").val("");
       }
       /* Voting.deployed() returns an instance of the contract. Every call
       * in Truffle returns a promise which is why we have used then()

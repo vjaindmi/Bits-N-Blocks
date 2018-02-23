@@ -39,6 +39,14 @@ h3 {
   font-size: 24px;
 }
 
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
 .black {
   color: black;
 }
@@ -50,3 +58,4 @@ h3 {
 .hint {
   color: #666;
 }
+
